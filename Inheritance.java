@@ -7,7 +7,12 @@ class A {
 	int addA() {
 		return a + 1; 
 	}
+
+	void showString() {
+       		System.out.println("Метод выполняемый объектом класса А:");
+	}
 }
+
 //Класс В наследует все открытые переменные и методы класса А 
 //и добавляет свои переменные и методы
 class B extends A {
@@ -17,6 +22,16 @@ class B extends A {
 		return b + 1;
 	
 	}
+	void showString() {
+                System.out.println("Метод выполняемый объектом класса B:"); 
+	}
+}
+
+class C extends A {
+        int b = 20;
+        void showString() {
+                System.out.println("Метод выполняемый объектом класса C:");
+        }
 }
 class Inheritance {
 	public static void main(String[] args) {
@@ -34,7 +49,22 @@ class Inheritance {
 		objB.addB();
 		System.out.println("Значение b : " + objB.b);
 		//Родительский класс не имеет доступа к переменным и методам дочернего класса
-		//Недопустимая операция: objA.addB():
+		//Недопустимая операция: objA.addB()
+		C objC = new C ();
+		objC.showA();
+
+		System.out.println();
+		objA.showString();
+		objB.showString();
+		objC.showString(); 
+		// Переменная суперкласс может указывать на любой объект, относящийся к подклассу
+		objA = objB; 
+		//Ссылаемся на объект класса B  и вызываем метод showString()
+		objA.showString();
+		objA = objC;
+		//Ссылаемся на объект класса C  и вызываем метод showString()
+                objA.showString();
+
 	}
 }
 
