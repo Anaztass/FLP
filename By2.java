@@ -40,25 +40,27 @@ class SetlesDemo {
 	public static void main(String[] args) {
 		By2 by2 = new By2();
 		By3 by3 = new By3();
+		Series s; 
+		s = by2;
 		System.out.println("последовательность \"через 2\"");
 
 		for (int l = 0; l < 5; l++)
-			System.out.print(by2.getNext() + " ");
+			System.out.print(s.getNext() + " ");
 		System.out.println();
 
 		System.out.println("Вывод серии предыдущих значений в последовательности \"черех 2\" начиная с текущего значение 10  :");
 		for (int l = 0; l < 5; l++) {
-                 	by2.getNext();
+                 	s.getNext();
 		 	System.out.print(by2.getPrevious() + " ");
 		}       
 		System.out.println();
 
 		//сбор последовательности к 0
-		by2.reset();
+		s.reset();
 		System.out.println("последовательность \"через 2\" после сброса в 0: ");
 
                 for (int l = 0; l < 5; l++)
-                        System.out.print(by2.getNext() + " ");
+                        System.out.print(s.getNext() + " ");
                 System.out.println();
 
 		// новое стартовое значение 51
@@ -66,30 +68,31 @@ class SetlesDemo {
                 System.out.println("последовательность \"через 2\" после установки стартового значения 51 ");
 
                 for (int l = 0; l < 5; l++)
-                        System.out.print(by2.getNext() + " ");
+                        System.out.print(s.getNext() + " ");
                 System.out.println();
 
 		// манипцляции с последовательностью через 3
+		s = by3;
 		System.out.println("последовательность \"через 3\"");
 
                 for (int l = 0; l < 5; l++)
-                        System.out.print(by3.getNext() + " ");
+                        System.out.print(s.getNext() + " ");
                 System.out.println();
 
                 //сбор последовательности к 0
-                by3.reset();
+                s.reset();
                 System.out.println("последовательность \"через 3\" после сброса в 0: ");
 
                 for (int l = 0; l < 5; l++)
-                        System.out.print(by3.getNext() + " ");
+                        System.out.print(s.getNext() + " ");
                 System.out.println();
 
                 // новое стартовое значение 51
-                by3.setStart(51);
+                s.setStart(51);
                 System.out.println("последовательность \"через 3\" после установки стартового значения 51 ");
 
                 for (int l = 0; l < 5; l++)
-                        System.out.print(by3.getNext() + " ");
+                        System.out.print(s.getNext() + " ");
                 System.out.println();
 	}
 }
